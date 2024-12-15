@@ -87,10 +87,11 @@ WSGI_APPLICATION = 'API_gestion_projets.wsgi.application'
 #         "PORT": "5432",
 #     }
 # }
+
+import environ
+env = environ.Env()
 DATABASES = {
-    'default': dj_database_url.config(
-        conn_max_age=600
-    )
+    'default': env.db('DATABASE_URL')
 }
 
 # Password validation
